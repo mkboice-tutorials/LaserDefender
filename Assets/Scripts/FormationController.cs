@@ -9,6 +9,7 @@ public class FormationController : MonoBehaviour
     public float width = 10f;
     public float height = 5f;
     public float speed = 5f;
+    public float spawnDelay = 0.5f;
 
     private bool movingRight = true;
     private float xmax;
@@ -22,7 +23,21 @@ public class FormationController : MonoBehaviour
         Vector3 rightBoundary = Camera.main.ViewportToWorldPoint(new Vector3(1, 0, distanceToCamera));
         xmax = rightBoundary.x;
         xmin = leftBoundary.x;
-        SpawnEnemies();
+        SpawnUntilFull();
+    }
+
+    void SpawnUntilFull()
+    {
+        Transform freePosition = NextFreePosition();
+        if (freePosition)
+        {
+            GameObject enemy = Instantiate(enemyPrefab, freePosition.position, Quaternion.identity) as GameObject;
+            enemy.transform.parent = freePosition; 
+        }
+        if (NextFreePosition())
+        {
+            Invoke("SpawnUntilFull", spawnDelay);
+        }
     }
 
     void SpawnEnemies()
@@ -66,7 +81,7 @@ public class FormationController : MonoBehaviour
         if (AllMembersDead())
         {
             Debug.Log("Empty Formation");
-            SpawnEnemies();
+            SpawnUntilFull();
         }
 
     }
@@ -81,5 +96,17 @@ public class FormationController : MonoBehaviour
             }
         }
         return true;
+    }
+
+    Transform NextFreePosition()
+    {
+        foreach (Transform childPositionGameObject in transform)
+        {
+            if (childPositionGameObject.childCount == 0)
+            {
+                return childPositionGameObject;
+            }
+        }
+        return null;
     }
 }
