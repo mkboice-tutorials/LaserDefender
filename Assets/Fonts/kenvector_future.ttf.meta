@@ -1,5 +1,7 @@
 fileFormatVersion: 2
-guid: 994788971f97d4466a2be6ef690dd3cd
+guid: 88b5a14805fc040719d066fd7fa9732d
+timeCreated: 1500175946
+licenseType: Free
 TrueTypeFontImporter:
   serializedVersion: 4
   fontSize: 16
@@ -7,8 +9,9 @@ TrueTypeFontImporter:
   characterSpacing: 0
   characterPadding: 1
   includeFontData: 1
-  fontName: 
-  fontNames: []
+  fontName: KenVector Future
+  fontNames:
+  - KenVector Future
   fallbackFontReferences: []
   customCharacters: 
   fontRenderingMode: 0
