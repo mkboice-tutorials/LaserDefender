@@ -140,6 +140,7 @@ MonoBehaviour:
   width: 10.65
   height: 5
   speed: 5
+  spawnDelay: 0.5
 --- !u!4 &5214031
 Transform:
   m_ObjectHideFlags: 0
@@ -404,7 +405,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 863054969}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.028366, y: 6.9, z: 0}
+  m_LocalPosition: {x: -1.028366, y: 16.53, z: 0}
   m_LocalScale: {x: 20, y: 3, z: 1}
   m_Children: []
   m_Father: {fileID: 328623302}
