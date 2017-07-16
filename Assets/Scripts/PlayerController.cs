@@ -42,6 +42,7 @@ public class PlayerController : MonoBehaviour
         {
             CancelInvoke("Fire");
         }
+
         if (Input.GetKey(KeyCode.LeftArrow))
         {
             transform.position += Vector3.left * speed * Time.deltaTime;
